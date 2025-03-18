@@ -1,6 +1,9 @@
 # Gunakan versi Node.js yang lebih stabil dan kompatibel
 FROM node:lts-bookworm
 
+# Atur direktori kerja dalam container
+WORKDIR /app
+
 # Install dependencies yang dibutuhkan termasuk build tools untuk node-gyp
 RUN apt-get update && \
   apt-get install -y \
