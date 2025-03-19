@@ -5,6 +5,15 @@ const fs = require('fs');
 const os = require('os');
 const express = require('express');
 const app = express();
+// Health Check di Port 4000
+const healthApp = express();
+healthApp.get('/', (req, res) => {
+  res.json({ status: 'true', message: 'Health Check OK' });
+});
+
+healthApp.listen(4000, () => {
+  console.log('\x1b[32m%s\x1b[0m', '✅ Health Check server running on port 4000');
+});
 
 // Express.js 
 const ports = [4000, 3000, 5000, 8000];
